@@ -38,5 +38,14 @@ public class Empresa {
         }
         return total;
     }
+    
+    public void reporteEmpleados(){
+        int estandar = 0, temporales = 0, ventas = 0;
+        for(int i = 0; i<contador; i++){
+            System.out.println("-------------------");
+            System.out.println(empleados[i].mostrarInformacion());
+            System.out.println("Pago Mensual: "+empleados[i].calcularPagoMensual());       
+        }
+    }
  
 }
