@@ -34,7 +34,7 @@ public class Empresa {
     public boolean registrarHorasTrabajadas(String codigo, double horas){
         for (int i = 0; i < contador; i++) {
            if(empleados[i].getCodigo().equals(codigo)){
-               empleados[i].registrasHoras(horas);
+               empleados[i].registrarHoras(horas);
              return true;
            }
         }
@@ -75,10 +75,7 @@ public class Empresa {
             else estandar++;
         }
         
-       // System.out.println("\nReporte: ");
-       // System.out.println("Empleado Estandar: "+estandar);
-       // System.out.println("Empleado Temporal: "+temporales);
-       // System.out.println("Empleado Ventas: "+ventas);
+     
     }
  
 
