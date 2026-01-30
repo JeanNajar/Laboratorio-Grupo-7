@@ -1,6 +1,6 @@
 
 package laboratorio2_30_1_2026;
-
+import java.time.LocalDate;
 
 public class Empresa {
     
@@ -19,6 +19,16 @@ public class Empresa {
             }
         }
         return null;
+    }
+    
+    public boolean registrarHorasTrabajadas(String codigo, double horas){
+        for (int i = 0; i < contador; i++) {
+           if(empleados[i].getCodigo().equals(codigo)){
+               empleados[i].registrasHoras(horas);
+             return true;
+           }
+        }
+      return false;
     }
  
 }
