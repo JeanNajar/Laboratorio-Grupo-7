@@ -75,10 +75,7 @@ public class Empresa {
             else estandar++;
         }
         
-       // System.out.println("\nReporte: ");
-       // System.out.println("Empleado Estandar: "+estandar);
-       // System.out.println("Empleado Temporal: "+temporales);
-       // System.out.println("Empleado Ventas: "+ventas);
+     
     }
  
 
