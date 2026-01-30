@@ -30,27 +30,30 @@ public class Empresa {
         }
       return false;
     }
-    
-<<<<<<< HEAD
-    public double calcularPagoMensual(){
-        double total = 0.0;
-        for(int i = 0; i<contador;i++){
-            total+=empleados[i].calcularPagoMensual();
-        }
-        return total;
+public double calcularPagoMensual(){
+    double total = 0.0;
+    for(int i = 0; i < contador; i++){
+        total += empleados[i].calcularPagoMensual();
     }
-    
-    public void reporteEmpleados(){
-        int estandar = 0, temporales = 0, ventas = 0;
-        for(int i = 0; i<contador; i++){
-            System.out.println("-------------------");
-            System.out.println(empleados[i].mostrarInformacion());
-            System.out.println("Pago Mensual: "+empleados[i].calcularPagoMensual());       
-        }
-=======
-    public boolean registrarVenta(String codigo, double monto, int mes){
-        
->>>>>>> 2542b63 (Se crea la clase registrar venta)
+    return total;
+}
+
+public void reporteEmpleados(){
+    for(int i = 0; i < contador; i++){
+        System.out.println("-------------------");
+        System.out.println(empleados[i].mostrarInformacion());
+        System.out.println("Pago Mensual: " + empleados[i].calcularPagoMensual());       
     }
- 
+}
+
+public boolean registrarVenta(String codigo, double monto, int mes){
+    for (int i = 0; i < contador; i++) {
+        if(empleados[i].getCodigo().equals(codigo) && empleados[i] instanceof EmpleadoVentas){
+            EmpleadoVentas ev = (EmpleadoVentas) empleados[i];
+            ev.registrarVentas(monto, mes);
+            return true;
+        }
+    }
+    return false;
+}
 }

@@ -13,7 +13,7 @@ private double tasaComision;
         this.ventasMensuales= new double[12]; 
     }
  
-    public void registrarVentas(double monto){
+    public void registrarVentas(double monto, int mes){
         if (monto > 0) {
             int mesActual = LocalDate.now().getMonthValue() - 1;
             ventasMensuales[mesActual] += monto;
