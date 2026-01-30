@@ -27,7 +27,7 @@ public class EMPLEADO {
         return horasTrabajadas;
     }
     
-    public void registrasHoras(double horas){
+    public void registrarHoras(double horas){
         if(horas>0){
             horasTrabajadas+=horas;
         }
