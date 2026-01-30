@@ -2,6 +2,7 @@
 package laboratorio2_30_1_2026;
 import java.time.LocalDate;
 
+
 public class EMPLEADO {
     
     protected String codigo;
@@ -26,7 +27,7 @@ public class EMPLEADO {
         return horasTrabajadas;
     }
     
-    public void registrasHoras(double horas){
+    public void registrarHoras(double horas){
         if(horas>0){
             horasTrabajadas+=horas;
         }
