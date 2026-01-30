@@ -12,6 +12,7 @@ public class Empresa {
         contador=0;
     }
     
+    
     public EMPLEADO buscarEmpleadoCodigo(String codigo){
         for (int i = 0; i < contador; i++) {
             if(empleados[i].getCodigo().equals(codigo)){
@@ -21,6 +22,15 @@ public class Empresa {
         return null;
     }
     
+    
+    public boolean registrarEmpleado(EMPLEADO empleado){
+        if (contador < empleados.length && buscarEmpleadoCodigo(empleado.getCodigo()) == null) {
+            empleados[contador]=empleado;
+            contador++;
+            return true;
+        }
+        return false;
+    }
     public boolean registrarHorasTrabajadas(String codigo, double horas){
         for (int i = 0; i < contador; i++) {
            if(empleados[i].getCodigo().equals(codigo)){
