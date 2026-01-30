@@ -12,5 +12,13 @@ public class Empresa {
         contador=0;
     }
     
+    public EMPLEADO buscarEmpleadoCodigo(String codigo){
+        for (int i = 0; i < contador; i++) {
+            if(empleados[i].getCodigo().equals(codigo)){
+                return empleados[i];
+            }
+        }
+        return null;
+    }
  
 }
