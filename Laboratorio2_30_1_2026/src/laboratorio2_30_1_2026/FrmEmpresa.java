@@ -115,6 +115,8 @@ public class FrmEmpresa {
         frame.add(btnVolver);
 
         btnRegistrar.addActionListener(e -> {
+            
+            
             try {
                 String codigo = txtCodigo.getText();
                 String nombre = txtNombre.getText();
@@ -124,12 +126,13 @@ public class FrmEmpresa {
                 if (tipo.equals("Estándar")) {
                     empleados.add(new EMPLEADO(codigo, nombre, salario, 0));
                 } else if (tipo.equals("Temporal")) {
-                    LocalDate fechaFin = LocalDate.parse(txtFechaFin.getText());
-                    empleados.add(new EmpleadoTemporal(codigo, nombre, salario, fechaFin));
+                LocalDate fechaFin = LocalDate.parse(txtFechaFin.getText());
+                empleados.add(new EmpleadoTemporal(codigo, nombre, salario, 0, fechaFin));
                 } else if (tipo.equals("Ventas")) {
-                    double comision = Double.parseDouble(txtComision.getText());
-                    empleados.add(new EmpleadoVentas(codigo, nombre, salario, comision));
+                double comision = Double.parseDouble(txtComision.getText());
+                empleados.add(new EmpleadoVentas(codigo, nombre, salario, 0, comision));
                 }
+
 
                 JOptionPane.showMessageDialog(frame, "Empleado registrado correctamente");
             } catch (Exception ex) {
@@ -137,7 +140,7 @@ public class FrmEmpresa {
             }
         });
 
-        btnVolver.addActionListener(e -> frame.dispose()); // cierra ventana y no guarda
+        btnVolver.addActionListener(e -> frame.dispose()); 
 
         frame.setVisible(true);
     }
@@ -191,7 +194,7 @@ public class FrmEmpresa {
         frame.setVisible(true);
     }
 
-    // ====================== Las demás ventanas seguirían la misma lógica ======================
+ 
 
     private void abrirRegistroVentas() {
         JFrame frame = new JFrame("Registrar Ventas");
@@ -225,8 +228,9 @@ public class FrmEmpresa {
                 String codigo = txtCodigo.getText();
                 double monto = Double.parseDouble(txtMonto.getText());
                 for (EMPLEADO emp : empleados) {
-                    if (emp instanceof EmpleadoVentas ev && emp.getCodigo().equals(codigo)) {
-                        ev.registrarVentas(monto);
+                    if (emp instanceof EmpleadoVentas) {
+              EmpleadoVentas ev = (EmpleadoVentas) emp;
+              if (ev.getCodigo().equals(codigo)) ;
                         JOptionPane.showMessageDialog(frame, "Venta registrada");
                         return;
                     }
@@ -275,7 +279,7 @@ public class FrmEmpresa {
                 LocalDate nuevaFecha = LocalDate.parse(txtFecha.getText());
                 for (EMPLEADO emp : empleados) {
                     if (emp instanceof EmpleadoTemporal et && emp.getCodigo().equals(codigo)) {
-                        et.actualizarFechaFin(nuevaFecha);
+                        et.actualizarFechaFinContrato(nuevaFecha);
                         JOptionPane.showMessageDialog(frame, "Contrato actualizado");
                         return;
                     }
@@ -306,19 +310,32 @@ public class FrmEmpresa {
         frame.add(btnVolver);
 
         StringBuilder sb = new StringBuilder();
+        int estandar = 0, temporales = 0, ventas = 0;
+
         for (EMPLEADO emp : empleados) {
-            sb.append(emp.mostrarInformacion())
-              .append("\nPago mensual: L. ").append(emp.calcularPago())
-              .append("\n---------------------\n");
-        }
-        txtReporte.setText(sb.toString());
+        sb.append(emp.mostrarInformacion())
+        .append("\nPago mensual: L. ").append(emp.calcularPago())
+        .append("\n---------------------\n");
+    
+    
+    if (emp instanceof EmpleadoTemporal) temporales++;
+    else if (emp instanceof EmpleadoVentas) ventas++;
+    else estandar++;
+}
+
+          sb.append("\nTotales:\n")
+  .append("Empleados Estándar: ").append(estandar).append("\n")
+  .append("Empleados Temporales: ").append(temporales).append("\n")
+  .append("Empleados Ventas: ").append(ventas).append("\n");
+
+         txtReporte.setText(sb.toString());
 
         btnVolver.addActionListener(e -> frame.dispose());
 
         frame.setVisible(true);
     }
 
-    // Método público para mostrar el menú desde otra clase
+    
     public void mostrar() {
         menuFrame.setVisible(true);
     }
