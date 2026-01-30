@@ -10,7 +10,7 @@ public class EMPLEADO {
     protected double salarioBase;
     protected double horasTrabajadas;
     
-    public EMPLEADO(String codigo, String nombre, double salarioBase){
+    public EMPLEADO(String codigo, String nombre, double salarioBase,double horasTrabajadas){
         this.codigo=codigo;
         this.nombre=nombre;
         this.fechaContratacion = LocalDate.now();
