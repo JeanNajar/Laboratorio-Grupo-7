@@ -30,5 +30,13 @@ public class Empresa {
         }
       return false;
     }
+    
+    public double calcularPagoMensual(){
+        double total = 0.0;
+        for(int i = 0; i<contador;i++){
+            total+=empleados[i].calcularPagoMensual();
+        }
+        return total;
+    }
  
 }
