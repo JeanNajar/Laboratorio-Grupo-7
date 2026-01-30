@@ -2,6 +2,7 @@
 package laboratorio2_30_1_2026;
 import java.time.LocalDate;
 
+
 public class EMPLEADO {
     
     protected String codigo;

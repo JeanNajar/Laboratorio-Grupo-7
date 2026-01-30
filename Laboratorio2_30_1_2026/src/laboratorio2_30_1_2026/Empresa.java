@@ -31,6 +31,7 @@ public class Empresa {
       return false;
     }
     
+<<<<<<< HEAD
     public double calcularPagoMensual(){
         double total = 0.0;
         for(int i = 0; i<contador;i++){
@@ -46,6 +47,10 @@ public class Empresa {
             System.out.println(empleados[i].mostrarInformacion());
             System.out.println("Pago Mensual: "+empleados[i].calcularPagoMensual());       
         }
+=======
+    public boolean registrarVenta(String codigo, double monto, int mes){
+        
+>>>>>>> 2542b63 (Se crea la clase registrar venta)
     }
  
 }
