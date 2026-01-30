@@ -38,4 +38,7 @@ public class EMPLEADO {
         return pagoProporcional-deduccion;
     }
     
+    public String mostrarInformacion(){
+        return "Codigo: "+codigo+"\nNombre: "+nombre+"\nFecha de contratacion:"+fechaContratacion;
+    }
 }
