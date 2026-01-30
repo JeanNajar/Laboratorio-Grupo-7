@@ -8,7 +8,7 @@ public class EMPLEADO {
     protected String nombre;
     protected LocalDate fechaContratacion;
     protected double salarioBase;
-    protected double horasTrabajadas;
+    protected double horasTrabajadas ;
     
     public EMPLEADO(String codigo, String nombre, double salarioBase,double horasTrabajadas){
         this.codigo=codigo;

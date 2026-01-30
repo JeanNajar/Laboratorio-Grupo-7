@@ -7,12 +7,12 @@ public class EmpleadoVentas extends EMPLEADO{
 private double[] ventasMensuales;
 private double tasaComision;
 
-    public EmpleadoVentas(String codigo, String nombre, double salarioBase,double horasTrabajadas) {
-        super(codigo, nombre, salarioBase, horasTrabajadas);
-        this.tasaComision= tasaComision;
-        this.ventasMensuales= new double[12]; 
-    }
- 
+    public EmpleadoVentas(String codigo, String nombre, double salarioBase, double horasTrabajadas, double tasaComision) {
+    super(codigo, nombre, salarioBase, horasTrabajadas);
+    this.tasaComision = tasaComision;
+    this.ventasMensuales = new double[12]; 
+}
+    
     public void registrarVentas(double monto){
         if (monto > 0) {
             int mesActual = LocalDate.now().getMonthValue() - 1;
