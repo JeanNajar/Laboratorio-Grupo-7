@@ -31,6 +31,19 @@ public class Empresa {
       return false;
     }
     
+    public boolean actualizarFechaFinContratos(String codigo, LocalDate nuevaFecha){
+        for(int i=0; i<contador; i++){
+            if(empleados[i].getCodigo().equals(codigo)){
+                if(empleados[i]instanceof EmpleadoTemporal){
+                    EmpleadoTemporal temp = (EmpleadoTemporal) empleados[i];
+                    temp.actualizarFechaFinContrato(nuevaFecha);
+                    return true;
+                } 
+            }
+        }
+        return false;
+    }
+    
     public double calcularPagoMensual(){
         double total = 0.0;
         for(int i = 0; i<contador;i++){
@@ -44,8 +57,17 @@ public class Empresa {
         for(int i = 0; i<contador; i++){
             System.out.println("-------------------");
             System.out.println(empleados[i].mostrarInformacion());
-            System.out.println("Pago Mensual: "+empleados[i].calcularPagoMensual());       
+            System.out.println("Pago Mensual: "+empleados[i].calcularPagoMensual());  
+            
+            if (empleados[i]instanceof EmpleadoTemporal) temporales++;
+            else if(empleados[i]instanceof EmpleadoVentas) ventas++;
+            else estandar++;
         }
+        
+        System.out.println("\nReporte: ");
+        System.out.println("Empleado Estandar: "+estandar);
+        System.out.println("Empleado Temporal: "+temporales);
+        System.out.println("Empleado Ventas: "+ventas);
     }
  
 }
