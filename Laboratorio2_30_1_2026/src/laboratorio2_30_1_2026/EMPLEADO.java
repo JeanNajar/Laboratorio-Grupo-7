@@ -32,5 +32,10 @@ public class EMPLEADO {
         }
     }
     
+    public double calcularPago(){
+        double pagoProporcional = (salarioBase/160)*horasTrabajadas;
+        double deduccion= pagoProporcional*0.035;
+        return pagoProporcional-deduccion;
+    }
     
 }
