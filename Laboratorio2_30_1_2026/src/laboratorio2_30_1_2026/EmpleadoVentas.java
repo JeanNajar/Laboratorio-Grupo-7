@@ -7,8 +7,8 @@ public class EmpleadoVentas extends EMPLEADO{
 private double[] ventasMensuales;
 private double tasaComision;
 
-    public EmpleadoVentas(String codigo, String nombre, double salarioBase) {
-        super(codigo, nombre, salarioBase);
+    public EmpleadoVentas(String codigo, String nombre, double salarioBase,double horasTrabajadas) {
+        super(codigo, nombre, salarioBase, horasTrabajadas);
         this.tasaComision= tasaComision;
         this.ventasMensuales= new double[12]; 
     }
